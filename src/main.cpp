@@ -46,6 +46,12 @@ void setup(void){
   server.begin();                           // Actually start the server
   Serial.println("HTTP server started");
 
+    // Hostname defaults to esp8266-[ChipID]
+  ArduinoOTA.setHostname(OTA_HOST_NAME);
+
+  // No authentication by default
+  ArduinoOTA.setPassword(OTA_PASSWORD);
+
   //Boilerplate code for OTA updates
   ArduinoOTA.onStart([]() {
     String type;
